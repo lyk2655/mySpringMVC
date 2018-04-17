@@ -33,9 +33,7 @@ public class UserDao {
                 user.setCredits(rs.getInt("credits"));
                 user.setPassword(rs.getString("password"));
                 user.setLastIp(rs.getString("last_ip"));
-                user.setLastVisit(rs.getDate("last_visit"));
-                
-                
+                user.setLastVisit(rs.getTimestamp("last_visit"));   
             }
         });
         System.out.println("UserDao"+user);

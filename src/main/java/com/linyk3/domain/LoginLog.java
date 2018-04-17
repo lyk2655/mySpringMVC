@@ -1,13 +1,14 @@
 package com.linyk3.domain;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class LoginLog implements Serializable{
     private int loginLogId;
     private int userId;
     private String ip;
-    private Date loginDate;
+    private Timestamp loginDate;
 
     public int getLoginLogId() {
         return loginLogId;
@@ -33,11 +34,18 @@ public class LoginLog implements Serializable{
         this.ip = ip;
     }
 
-    public Date getLoginDate() {
+    public Timestamp getLoginDate() {
         return loginDate;
     }
 
-    public void setLoginDate(Date loginDate) {
+    public void setLoginDate(Timestamp loginDate) {
         this.loginDate = loginDate;
     }
+
+	@Override
+	public String toString() {
+		return "LoginLog [loginLogId=" + loginLogId + ", userId=" + userId + ", ip=" + ip + ", loginDate=" + loginDate
+				+ "]";
+	}
+    
 }

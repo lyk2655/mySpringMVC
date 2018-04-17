@@ -25,11 +25,13 @@ public class UserService {
 	}
 
 	public void loginSuccess(User user) {
+		System.out.println("loginSuccess"+user);
 		user.setCredits(user.getCredits() + 5);
 		LoginLog loginLog = new LoginLog();
 		loginLog.setUserId(user.getUserId());
 		loginLog.setIp(user.getLastIp());
 		loginLog.setLoginDate(user.getLastVisit());
+		System.out.println("loginSuccess"+loginLog);
 		userdao.updateLoginInfo(user);
 		loginLogDao.insertLoginLog(loginLog);
 	}

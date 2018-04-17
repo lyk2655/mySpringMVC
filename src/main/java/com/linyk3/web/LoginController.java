@@ -1,5 +1,6 @@
 package com.linyk3.web;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,7 +32,8 @@ public class LoginController {
         }else{
             User user = userService.findUserByUsername(loginCommand.getUsername());
             user.setLastIp(request.getLocalAddr());
-            user.setLastVisit(new Date());
+            user.setLastVisit(new Timestamp(new Date().getTime()));
+            System.out.println("loginCheck"+user);
             userService.loginSuccess(user);
             request.getSession().setAttribute("user", user);
             return new ModelAndView("main");

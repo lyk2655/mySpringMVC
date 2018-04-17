@@ -1,6 +1,7 @@
 package com.linyk3.domain;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class User implements Serializable {
@@ -9,7 +10,7 @@ public class User implements Serializable {
     private String password;
     private int credits;
     private String lastIp;
-    private Date lastVisit;
+    private Timestamp lastVisit;
 
     public int getUserId() {
         return userId;
@@ -51,11 +52,11 @@ public class User implements Serializable {
         this.lastIp = lastIp;
     }
 
-    public Date getLastVisit() {
+    public Timestamp getLastVisit() {
         return lastVisit;
     }
 
-    public void setLastVisit(Date lastVisit) {
+    public void setLastVisit(Timestamp lastVisit) {
         this.lastVisit = lastVisit;
     }
 
