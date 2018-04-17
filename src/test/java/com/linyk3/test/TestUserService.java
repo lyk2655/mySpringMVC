@@ -25,14 +25,14 @@ public class TestUserService {
         boolean b1 = userService.hasMatchUser("admin", "123456");
         boolean b2 = userService.hasMatchUser("admin", "1236");
 
-        
-        assertTrue(b1);
-        //assertTrue(!b2);
+        System.out.println("b1["+b1+"],b2["+b2+"]");
+        assertTrue(!b1);
+        assertTrue(!b2);
     }
     
     @Test
     public void findUserByUsername(){
-        User user = userService.findUserByUsername("linyk3");
+        User user = userService.findUserByUsername("admin");
         System.out.println(user.toString());
         assertEquals(user.getUserName(), "admin");
         user.setLastIp("192.168.11.188");
