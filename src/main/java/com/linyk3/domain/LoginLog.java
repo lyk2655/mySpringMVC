@@ -8,7 +8,7 @@ public class LoginLog implements Serializable{
     private int loginLogId;
     private int userId;
     private String ip;
-    private Timestamp loginDate;
+    private Date loginDate;
 
     public int getLoginLogId() {
         return loginLogId;
@@ -34,11 +34,11 @@ public class LoginLog implements Serializable{
         this.ip = ip;
     }
 
-    public Timestamp getLoginDate() {
+    public Date getLoginDate() {
         return loginDate;
     }
 
-    public void setLoginDate(Timestamp loginDate) {
+    public void setLoginDate(Date loginDate) {
         this.loginDate = loginDate;
     }
 

@@ -32,7 +32,7 @@ public class LoginController {
         }else{
             User user = userService.findUserByUsername(loginCommand.getUsername());
             user.setLastIp(request.getLocalAddr());
-            user.setLastVisit(new Timestamp(new Date().getTime()));
+            user.setLastVisit(new Date());
             System.out.println("loginCheck"+user);
             userService.loginSuccess(user);
             request.getSession().setAttribute("user", user);
