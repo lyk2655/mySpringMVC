@@ -8,6 +8,7 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>
             classpath:applicationContext.xml
+            classpath:spring-mybatis.xml
         </param-value>
     </context-param>
     <!-- 负责启动spring容器监听器，将引用上面的上下文参数获取spring配置文件地址 -->

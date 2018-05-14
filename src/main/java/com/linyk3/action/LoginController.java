@@ -1,4 +1,4 @@
-package com.linyk3.web;
+package com.linyk3.action;
 
 import java.sql.Timestamp;
 import java.util.Date;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.linyk3.domain.User;
+import com.linyk3.bean.User;
 import com.linyk3.service.UserService;
 
 
@@ -31,9 +31,9 @@ public class LoginController {
             return new ModelAndView("login", "error", "用户名或密码错误");
         }else{
             User user = userService.findUserByUsername(loginCommand.getUsername());
+            System.out.println("loginCheck"+user);
             user.setLastIp(request.getLocalAddr());
             user.setLastVisit(new Date());
-            System.out.println("loginCheck"+user);
             userService.loginSuccess(user);
             request.getSession().setAttribute("user", user);
             return new ModelAndView("main");

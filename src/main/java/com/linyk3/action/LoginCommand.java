@@ -1,4 +1,4 @@
-package com.linyk3.web;
+package com.linyk3.action;
 
 public class LoginCommand {
     private String username;

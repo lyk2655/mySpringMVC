@@ -3,25 +3,25 @@ package com.linyk3.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.linyk3.dao.LoginLogDao;
-import com.linyk3.dao.UserDao;
-import com.linyk3.domain.LoginLog;
-import com.linyk3.domain.User;
+import com.linyk3.bean.LoginLog;
+import com.linyk3.bean.User;
+import com.linyk3.mapper.LoginLogMapper;
+import com.linyk3.mapper.UserMapper;
 
 @Service
 public class UserService {
 	@Autowired
-	private UserDao userdao;
+	private UserMapper userMapper;
 	@Autowired
-	private LoginLogDao loginLogDao;
+	private LoginLogMapper loginLogMapper;
 
 	public boolean hasMatchUser(String name, String password) {
-		int matchCount = userdao.getMatchCount(name, password);
+		int matchCount = userMapper.getMatchCount(name, password);
 		return matchCount > 0;
 	}
 
 	public User findUserByUsername(String username) {
-		return userdao.findUserByName(username);
+		return userMapper.findUserByName(username);
 	}
 
 	public void loginSuccess(User user) {
@@ -32,7 +32,9 @@ public class UserService {
 		loginLog.setIp(user.getLastIp());
 		loginLog.setLoginDate(user.getLastVisit());
 		System.out.println("loginSuccess"+loginLog);
-		userdao.updateLoginInfo(user);
-		loginLogDao.insertLoginLog(loginLog);
+		user.setLastIp("222.111.111.333");
+		System.out.println("loginSuccessafter"+user);
+		userMapper.updateLoginInfo(user);
+		loginLogMapper.insertLoginLog(loginLog);
 	}
 }

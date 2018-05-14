@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.linyk3.domain.User;
+import com.linyk3.bean.User;
 import com.linyk3.service.UserService;
 
 

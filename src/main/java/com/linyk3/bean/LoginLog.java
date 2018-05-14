@@ -1,4 +1,4 @@
-package com.linyk3.domain;
+package com.linyk3.bean;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
